@@ -1,25 +1,27 @@
-#include<stdio.h>
 #include "lists.h"
 
 /**
- * reverse_listint - To reverse a linked list
- * @head: A pointer to the first node
- * Return: The pointer to the first node in the new list
+ * reverse_listint - func prints reversed linked list
+ * @head: list head
+ * Return: first node address pointer (SUccess), fail (NULL)
  */
-	listint_t *reverse_listint(listint_t **head)
-	{
-	listint_t *i = NULL;
-	listint_t *j = NULL;
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *i;
+	listint_t *j;
 
-	while (*head)
+	i = NULL;
+	j = NULL;
+
+	while (*head != NULL)
 	{
-	j = (*head)->j;
-	(*head)->b = i;
-	i = *head;
+		i = (*head)->next;
+		(*head)->next = j;
+		j = *head;
+		*head = i;
+	}
+
 	*head = j;
-	}
-
-	*head = i;
-
 	return (*head);
-	}
+}
+
