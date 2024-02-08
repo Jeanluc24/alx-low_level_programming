@@ -15,7 +15,7 @@
 
 	for (xor_op = 63; xor_op >= 0; xor_op--)
 	{
-		result = index >> counter;
+		result = index >> xor_op;
 		if (result & 1)
 			sum_bit++;
 	}
