@@ -1,23 +1,24 @@
+#include<stdio.h>
 #include "main.h"
 
 /**
- * flip_bits - func prints - func prints bits to flip int inputs
- * @n: first input int
- * @m: second input int
- * Return: flipped number of bits (Success)
+ * flip_bits - Counting the number of bits to change
+ * @n: The first number
+ * @m: The second number
+ * Return: The number of bits to change
  */
-unsigned int flip_bits(unsigned long int n, unsigned long int m)
-{
-	unsigned long int xor_op;
-	unsigned int sum_bit;
-
-	sum_bit = 0;
-	xor_op = n ^ m;
-
-	while (xor)
+	unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	{
-		sum_bit += xor_op & 1;
-		xor_op = xor_op >> 1;
+	int xor_op, sum_bit = 0;
+	unsigned long int result;
+	unsigned long int index = n ^ m;
+
+	for (xor_op = 63; xor_op >= 0; xor_op--)
+	{
+		result = index >> counter;
+		if (result & 1)
+			sum_bit++;
 	}
+
 	return (sum_bit);
 }
