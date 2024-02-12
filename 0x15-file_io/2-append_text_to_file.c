@@ -26,7 +26,7 @@
 		for (letters_wr = 0; text_content[letters_wr]; letters_wr++)
 			;
 
-		index = write(counter, text_content, letters_wr);
+		index = write(count, text_content, letters_wr);
 
 		if (index == -1)
 			return (-1);
