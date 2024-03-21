@@ -32,7 +32,7 @@
 		*head = new_node;
 	}
 
-	new->prev = h;
+	new_node->prev = h;
 
 	return (new_node);
 }
