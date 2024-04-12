@@ -1,4 +1,3 @@
-
 #include "hash_tables.h"
 
 /**
@@ -11,14 +10,13 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long j, count;
-	hash_node_t *ne_node;
+	unsigned long j;
+	hash_node_t *node;
 
 	if (ht == NULL || key == NULL || value == NULL)
 		return (0);
 
-	count = ht->count;
-	j = key_index((const unsigned char *)key, count);
+	j = key_index((const unsigned char *)key, ht->size);
 
 	if (ht->array[j] != NULL && strcmp(ht->array[j]->key, key) == 0)
 	{
@@ -26,15 +24,15 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	ne_node = malloc(sizeof(hash_node_t));
+	node = malloc(sizeof(hash_node_t));
 
-	if (ne_node == NULL)
+	if (node == NULL)
 		return (0);
-
-	ne_node->key = strdup(key);
-	ne_node->value = strdup(value);
-	ne_node->next = ht->array[j];
-	ht->array[j] = ne_node;
+	
+	node->key = strdup(key);
+	node->value = strdup(value);
+	node->next = ht->array[j];
+	ht->array[j] = node;
 
 	return (1);
 }
