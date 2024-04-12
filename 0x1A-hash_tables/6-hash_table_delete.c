@@ -28,7 +28,7 @@ void hash_table_delete(hash_table_t *ht)
 			next = new_node->next;
 			if (new_node->key)
 				free(new_node->key);
-			if (node->value)
+			if (new_node->value)
 				free(new_node->value);
 			new_node->key = NULL;
 			new_node->value = NULL;
